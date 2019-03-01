@@ -2,7 +2,7 @@ node {
     stage('Checkout') {
         checkout([$class: 'GitSCM', branches: [[name: '*/$branch']], 
             doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
-            userRemoteConfigs: [[credentialsId:'/$githubToken' , url: 'github project url']]])
+            userRemoteConfigs: [[credentialsId:'/$githubToken' , url: 'git@github.com:pablojotaguardiola/test-jenk.git']]])
     }
     stage('Environment/Bundles Setup') {
         sh "Scripts/change_server.sh $server"
