@@ -8,7 +8,7 @@ node {
         sh 'fastlane clean_xcode'
     }
     stage('Code Sign') {
-        sh 'fastlane cert'
+        sh 'fastlane codesign method:"adhoc"'
     }
     stage('Create Build') {   
         sh 'fastlane create_build'
