@@ -4,10 +4,6 @@ node {
             doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
             userRemoteConfigs: [[credentialsId:'/$githubToken' , url: 'git@github.com:pablojotaguardiola/test-jenk.git']]])
     }
-    stage('Environment/Bundles Setup') {
-        sh "Scripts/change_server.sh $server"
-        sh "pod install --repo-update"
-    }
     stage('Clean') {
         sh 'fastlane clean_xcode'
     }
