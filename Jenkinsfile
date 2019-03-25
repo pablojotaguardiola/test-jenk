@@ -8,6 +8,9 @@ node {
         sh "Scripts/change_server.sh $server"
         sh "pod install --repo-update"
     }
+    stage('Clean') {
+        sh 'fastlane clean_xcode'
+    }
     stage('Code Sign') {
         sh 'fastlane codesign method:"adhoc"'
     }
