@@ -17,8 +17,9 @@ default_platform(:ios)
 
 platform :ios do
   desc "Push a new beta build to TestFlight"
+  
   lane :beta do
-    build_app(scheme: "TestFastLane")
-    upload_to_testflight
-  end
+	  sync_code_signing(type: "auto")    # see code signing guide for more information
+	  build_app(scheme: "MyApp")
+	end
 end
